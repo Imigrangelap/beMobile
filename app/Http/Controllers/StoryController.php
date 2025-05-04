@@ -38,7 +38,6 @@ class StoryController extends Controller
         $story = Story::create([
             'description' => $validated['description'],
             'namatempat' => $validated['namatempat'],
-            'biayaya_perjalanan' => $validated['biayaya_perjalanan'],
             'user_id' => Auth::user()->id,
             'photo' => $photoUrl,
             'latitude' => $validated['lat'] ?? null,

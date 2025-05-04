@@ -38,7 +38,7 @@ class StoryController extends Controller
             'description' => $validated['description'],
             'namatempat' => $validated['namatempat'],
             'user_id' => Auth::user()->id,
-
+            'photo' => $validated['photo'],
             'latitude' => $validated['lat'] ?? null,
             'longitude' => $validated['lon'] ?? null
         ]);

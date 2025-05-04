@@ -17,8 +17,9 @@ return new class extends Migration
             $table->text('namatempat');
             $table->foreignId('user_id')->constrained();
             $table->string('photo');
-            $table->decimal('latitude', 10, 8)->nullable();
-            $table->decimal('longitude', 11, 8)->nullable();
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
+
             $table->timestamps();
         });
     }

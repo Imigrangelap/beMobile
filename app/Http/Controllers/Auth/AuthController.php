@@ -38,7 +38,10 @@ class AuthController extends Controller
         ]);
 
         if (!Auth::attempt($credentials)) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
+            return response()->json([
+                'message' => '401',
+                'isError' => true
+            ], 401);
         }
 
         $user = Auth::user();
@@ -46,11 +49,15 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Login successful',
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-            'user' => $user->only(['id', 'nama', 'email'])
+            'loginResult' => [
+                'name' => $user->nama,
+                'userId' => (string) $user->id,
+                'token' => $token
+            ],
+            'isError' => false
         ]);
     }
+
 
     public function logout(Request $request)
     {

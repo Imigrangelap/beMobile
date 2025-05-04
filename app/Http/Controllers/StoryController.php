@@ -28,7 +28,6 @@ class StoryController extends Controller
         $validated = $request->validate([
             'description' => 'required|string',
             'namatempat' => 'required|string',
-            'biayaya_perjalanan' => 'required',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'lat' => 'nullable|numeric',
             'lon' => 'nullable|numeric'

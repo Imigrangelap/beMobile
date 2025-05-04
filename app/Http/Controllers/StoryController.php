@@ -33,11 +33,12 @@ class StoryController extends Controller
             'lon' => 'nullable|numeric'
         ]);
 
+
         $story = Story::create([
             'description' => $validated['description'],
             'namatempat' => $validated['namatempat'],
             'user_id' => Auth::user()->id,
-            'photo' => $validated["photo"],
+
             'latitude' => $validated['lat'] ?? null,
             'longitude' => $validated['lon'] ?? null
         ]);

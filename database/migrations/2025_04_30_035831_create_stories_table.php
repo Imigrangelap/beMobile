@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->text('description');
             $table->text('namatempat');
-            $table->integer('biyaya_perjalanan');
             $table->foreignId('user_id')->constrained();
             $table->string('photo');
             $table->decimal('latitude', 10, 8)->nullable();

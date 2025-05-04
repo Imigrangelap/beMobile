@@ -33,8 +33,7 @@ class StoryController extends Controller
             'lon' => 'nullable|numeric'
         ]);
 
-        $photoUrl = $cloudinaryService->uploadImage($request->file('photo'));
-
+        $photoUrl = "photo.jpg";
         $story = Story::create([
             'description' => $validated['description'],
             'namatempat' => $validated['namatempat'],

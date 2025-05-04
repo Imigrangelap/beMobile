@@ -28,17 +28,16 @@ class StoryController extends Controller
         $validated = $request->validate([
             'description' => 'required|string',
             'namatempat' => 'required|string',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'required|string',
             'lat' => 'nullable|numeric',
             'lon' => 'nullable|numeric'
         ]);
 
-        $photoUrl = "photo.jpg";
         $story = Story::create([
             'description' => $validated['description'],
             'namatempat' => $validated['namatempat'],
             'user_id' => Auth::user()->id,
-            'photo' => $photoUrl,
+            'photo' => $validated["photo"],
             'latitude' => $validated['lat'] ?? null,
             'longitude' => $validated['lon'] ?? null
         ]);
